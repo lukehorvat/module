@@ -7,6 +7,7 @@ var path = require("path");
 var chalk = require("chalk");
 var copy = require("copy");
 var mkdirp = require("mkdirp");
+var tildify = require("tildify");
 var argv = require("yargs").argv;
 var pkg = require("./package.json");
 
@@ -28,7 +29,7 @@ mkdirp(dir, function(err) {
     process.exit(1);
   }
 
-  console.log(chalk.green("+", dir));
+  console.log(chalk.green("+", tildify(dir)));
 
   copy(path.join(__dirname, "template", "*"), dir, { dot: true }, function(err, files) {
     if (err) {
@@ -37,7 +38,7 @@ mkdirp(dir, function(err) {
     }
 
     files.forEach(function(file) {
-      console.log(chalk.green("+", file.path));
+      console.log(chalk.green("+", tildify(file.path)));
     });
 
     console.log(chalk.green("Module created!"));
