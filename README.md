@@ -1,6 +1,6 @@
 # module [![NPM version](http://img.shields.io/npm/v/module.svg?style=flat-square)](https://www.npmjs.org/package/module)
 
-Generate the minimal skeleton/boilerplate of a new Node.js module.
+Generate the minimal skeleton/boilerplate for a new Node.js module.
 
 ## Installation
 
@@ -12,17 +12,18 @@ $ npm install -g module
 
 ## Usage
 
-Example:
+For example, to create a module in the current working directory:
 
 ```bash
-# Create a module in the current working directory:
 $ module
-
-# Create a module in the "hello" directory (relative path):
-$ module hello
-
-# Create a module in the "hello" directory (absolute path):
-$ module /tmp/hello
 ```
 
-If the specified directory doesn't exist yet, it will be automatically created.
+And to create a module in another directory, specify a relative or absolute path:
+
+```bash
+$ module hello
+```
+
+If the directory doesn't exist yet, it will be automatically created.
+
+The following boilerplate files are generated for you: `package.json`, `index.js`, `cli.js`, and `.gitignore`.
