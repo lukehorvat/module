@@ -11,7 +11,8 @@
   "bugs": {
     "url": "https://github.com/lukehorvat/module/issues"
   },
-  "bin": "./index.js",
+  "main": "./index.js",
+  "bin": "./cli.js",
   "dependencies": {
     "chalk": "1.1.3",
     "lodash.template": "4.2.4",
