@@ -2,14 +2,25 @@
 
 "use strict";
 
+var pkg = require("./package.json");
 var path = require("path");
 var chalk = require("chalk");
 var template = require("lodash.template");
 var map = require("map-stream");
 var tildify = require("tildify");
 var vfs = require("vinyl-fs");
-var argv = require("yargs").argv;
-var pkg = require("./package.json");
+var yargs = require("yargs");
+var argv = yargs
+  .usage("Usage: $0 <dir>")
+  .demand(0, 1)
+  .option("h", { alias: "help", describe: "Show help" })
+  .option("v", { alias: "version", describe: "Show version" })
+  .argv;
+
+if (argv.help || argv.h) {
+  yargs.showHelp();
+  process.exit();
+}
 
 if (argv.version || argv.v) {
   console.log(pkg.version);
