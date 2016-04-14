@@ -14,6 +14,7 @@
   "bin": "./index.js",
   "dependencies": {
     "chalk": "1.1.3",
+    "lodash.template": "4.2.4",
     "map-stream": "0.0.6",
     "tildify": "1.2.0",
     "vinyl-fs": "2.4.3",

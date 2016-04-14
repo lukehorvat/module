@@ -4,6 +4,7 @@
 
 var path = require("path");
 var chalk = require("chalk");
+var template = require("lodash.template");
 var map = require("map-stream");
 var tildify = require("tildify");
 var vfs = require("vinyl-fs");
@@ -23,7 +24,15 @@ if (argv._.length > 0) {
 console.log(chalk.green("Creating module..."));
 
 vfs
-  .src(path.join(__dirname, "template", "**", "*"), { dot: true })
+  .src(path.join(__dirname, "templates", "**", "*"), { dot: true })
+  .pipe(map(function(file, callback) {
+    file.contents = new Buffer(template(file.contents)({ name: path.basename(dir) }));
+    callback(null, file);
+  }))
+  .once("error", function() {
+    console.error(chalk.red("An error occurred."));
+    process.exit(1);
+  })
   .pipe(vfs.dest(dir))
   .pipe(map(function(file, callback) {
     console.log(chalk.green("+", tildify(file.path)));
@@ -31,4 +40,5 @@ vfs
   }))
   .once("end", function() {
     console.log(chalk.green("Module created!"));
+    process.exit();
   });
