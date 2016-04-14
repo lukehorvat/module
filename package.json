@@ -1,7 +1,7 @@
 {
   "name": "module",
   "version": "0.0.0",
-  "description": "TODO.",
+  "description": "Generate the minimal skeleton/boilerplate of a new Node.js module.",
   "author": "Luke Horvat",
   "license": "MIT",
   "repository": {
@@ -21,9 +21,15 @@
   "devDependencies": {},
   "keywords": [
     "npm",
-    "package",
+    "node",
     "module",
-    "component",
-    "new"
+    "package",
+    "generic",
+    "minimal",
+    "barebones",
+    "skeleton",
+    "boilerplate",
+    "scaffold",
+    "generator"
   ]
 }
