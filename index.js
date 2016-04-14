@@ -2,12 +2,11 @@
 
 "use strict";
 
-var fs = require("fs");
 var path = require("path");
 var chalk = require("chalk");
-var copy = require("copy");
-var mkdirp = require("mkdirp");
+var map = require("map-stream");
 var tildify = require("tildify");
+var vfs = require("vinyl-fs");
 var argv = require("yargs").argv;
 var pkg = require("./package.json");
 
@@ -23,24 +22,13 @@ if (argv._.length > 0) {
 
 console.log(chalk.green("Creating module..."));
 
-mkdirp(dir, function(err) {
-  if (err) {
-    console.error(chalk.red("Failed to create target directory."));
-    process.exit(1);
-  }
-
-  console.log(chalk.green("+", tildify(dir)));
-
-  copy(path.join(__dirname, "template", "*"), dir, { dot: true }, function(err, files) {
-    if (err) {
-      console.error(chalk.red("Failed to copy template files to target directory."));
-      process.exit(1);
-    }
-
-    files.forEach(function(file) {
-      console.log(chalk.green("+", tildify(file.path)));
-    });
-
+vfs
+  .src(path.join(__dirname, "template", "**", "*"), { dot: true })
+  .pipe(vfs.dest(dir))
+  .pipe(map(function(file, callback) {
+    console.log(chalk.green("+", tildify(file.path)));
+    callback();
+  }))
+  .once("end", function() {
     console.log(chalk.green("Module created!"));
   });
-});
