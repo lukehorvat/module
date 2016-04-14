@@ -1,0 +1,26 @@
+{
+  "name": "module",
+  "version": "0.0.0",
+  "description": "TODO.",
+  "author": "Luke Horvat",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lukehorvat/module.git"
+  },
+  "bugs": {
+    "url": "https://github.com/lukehorvat/module/issues"
+  },
+  "bin": "./cli.js",
+  "dependencies": {
+    "yargs": "4.6.0"
+  },
+  "devDependencies": {},
+  "keywords": [
+    "npm",
+    "package",
+    "module",
+    "component",
+    "new"
+  ]
+}
