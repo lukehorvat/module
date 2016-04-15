@@ -26,4 +26,10 @@ $ module hello
 
 If the directory doesn't exist yet, it will be automatically created.
 
-The following boilerplate files are generated for you: `package.json`, `index.js`, `cli.js`, and `.gitignore`.
+The following boilerplate files are generated for you:
+
+- `package.json`
+- `index.js`
+- `cli.js`
+- `README.md`
+- `.gitignore`
