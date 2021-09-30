@@ -1,6 +1,6 @@
 {
   "name": "module",
-  "version": "1.2.5",
+  "version": "1.2.5-patch-1",
   "description": "Generate the minimal skeleton/boilerplate for a new Node.js module.",
   "author": "Luke Horvat",
   "license": "MIT",
