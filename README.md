@@ -2,6 +2,8 @@
 
 Generate the minimal skeleton for a new node.js module/package.
 
+![](./screenshot.png)
+
 ## Usage
 
 For example, to create a module in the current working directory:
